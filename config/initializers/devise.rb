@@ -296,6 +296,8 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
+
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
   #
