@@ -81,3 +81,6 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # https://rubygems.org/gems/rubocop-rails
 gem 'rubocop-rails', '~> 2.16', '>= 2.16.1'
+
+# https://tailwindcss.com/docs/guides/ruby-on-rails
+gem 'tailwindcss-rails', '~> 2.0'
