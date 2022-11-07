@@ -64,6 +64,11 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # https://rubygems.org/gems/annotate
+  gem 'annotate', '~> 3.2'
+  # https://rubygems.org/gems/rubocop-rails
+  gem 'rubocop-rails', '~> 2.16', '>= 2.16.1'
 end
 
 group :test do
@@ -78,9 +83,6 @@ gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 
 # https://rubygems.org/gems/devise
 gem 'devise', '~> 4.8', '>= 4.8.1'
-
-# https://rubygems.org/gems/rubocop-rails
-gem 'rubocop-rails', '~> 2.16', '>= 2.16.1'
 
 # https://tailwindcss.com/docs/guides/ruby-on-rails
 gem 'tailwindcss-rails', '~> 2.0'
