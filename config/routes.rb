@@ -1,3 +1,6 @@
+# == Route Map
+#
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -8,4 +11,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  namespace :companies do 
+    resources :companies, only: [:index, :show, :new, :create, :update, :delete]
+  end
+  namespace :events do
+    resources :events, only: [:index, :show, :new, :create, :update, :delete]
+  end
 end
