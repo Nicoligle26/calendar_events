@@ -16,17 +16,50 @@ ActiveRecord::Schema[7.0].define(version: 20_220_930_211_824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
+  create_table 'companies', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.string 'admin'
+    t.string 'address'
+    t.string 'phone_number'
+    t.string 'city'
+    t.string 'country'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'events', force: :cascade do |t|
+    t.string 'name'
+    t.string 'description'
+    t.datetime 'start_date'
+    t.datetime 'end_date'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'company_id'
+    t.index ['company_id'], name: 'index_events_on_company_id'
+  end
+
   create_table 'users', force: :cascade do |t|
-    t.string 'last_names', default: '', null: false
-    t.string 'names', default: '', null: false
+    t.string 'last_name', default: '', null: false
+    t.string 'name', default: '', null: false
     t.string 'email', default: '', null: false
+    t.string 'phone_number', default: '', null: false
+    t.string 'city', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
     t.string 'reset_password_token'
     t.datetime 'reset_password_sent_at'
     t.datetime 'remember_created_at'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.bigint 'company_id'
+    t.bigint 'event_id'
+    t.index ['company_id'], name: 'index_users_on_company_id'
     t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['event_id'], name: 'index_users_on_event_id'
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
+
+  add_foreign_key 'events', 'companies'
+  add_foreign_key 'users', 'companies'
+  add_foreign_key 'users', 'events'
 end
